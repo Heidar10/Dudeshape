@@ -9,7 +9,7 @@ menuToggle.addEventListener("click", () => {
 
 function initReviewSlider() {
   const slider = document.querySelector(".slider-reviews");
-  const slides = document.querySelectorAll(".reviewer");
+  const reviewer = document.querySelectorAll(".reviewer");
   const prevButtons = document.querySelectorAll(
     '.arrow-link img[src*="arrow-left"]'
   );
@@ -20,7 +20,7 @@ function initReviewSlider() {
   let currentIndex = 0;
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
+    reviewer.forEach((slide, i) => {
       slide.style.display = i === index ? "flex" : "none";
     });
   }
@@ -29,14 +29,14 @@ function initReviewSlider() {
 
   prevButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      currentIndex = (currentIndex - 1 + reviewer.length) % reviewer.length;
       showSlide(currentIndex);
     });
   });
 
   nextButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % slides.length;
+      currentIndex = (currentIndex + 1) % reviewer.length;
       showSlide(currentIndex);
     });
   });
